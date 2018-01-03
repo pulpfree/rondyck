@@ -1,6 +1,8 @@
 import React from 'react'
 import Link from 'gatsby-link'
 
+require("prismjs/themes/prism-solarizedlight.css");
+
 const IndexPage = ({ data }) => {
   console.log(data)
   return (
@@ -30,14 +32,14 @@ const IndexPage = ({ data }) => {
 export default IndexPage
 
 export const query = graphql`
-  query MyFilesQuery {
+  query IndexQuery {
     allMarkdownRemark(sort: {fields: [frontmatter___date], order: DESC}) {
       edges {
         node {
           id,
           frontmatter {
             title,
-            date
+            date(formatString: "MMM D, YYYY")
           }
           fields {
             slug
