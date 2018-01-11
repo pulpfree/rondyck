@@ -1,6 +1,7 @@
 language: node_js
 node_js:
   - "9"
+cache: yarn
 script:
   - gatsby build
 # python:
@@ -13,6 +14,7 @@ script:
 deploy:
   provider: s3
   bucket: com.rondyck
+  region: ca-central-1
   skip_cleanup: true
   local_dir: public
   access_key_id:
