@@ -1,4 +1,7 @@
 language: node_js
+
+script:
+  - gatsby build
 # python:
   # - "3.5"
 # cache: pip
