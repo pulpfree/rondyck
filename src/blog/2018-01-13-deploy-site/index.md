@@ -2,7 +2,7 @@
 title: "Deploying The Blog"
 cover: "https://unsplash.it/400/300/?random?AngelsofMist"
 category: "test1"
-date: "2018-01-03"
+date: "2018-01-13"
 tags:
     - React
     - AWS
