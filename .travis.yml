@@ -1,16 +1,9 @@
 language: node_js
 node_js:
-  - "9"
+- '9'
 cache: yarn
 script:
-  - gatsby build
-# python:
-  # - "3.5"
-# cache: pip
-# install:
-  # Install any dependencies required for building your site here.
-  # `awscli` is required for invalidation of CloudFront distributions.
-  # - pip install awscli
+- gatsby build
 deploy:
   provider: s3
   bucket: com.rondyck

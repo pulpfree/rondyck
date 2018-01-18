@@ -22,7 +22,7 @@ export default () => (
         className={linkStyle}
         to={'/resume/'}
     >
-      Resume
+      Résumé
     </Link>
   </g.Div>
 )

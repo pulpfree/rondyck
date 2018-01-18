@@ -30,7 +30,7 @@ export default ({ title }) => ( // eslint-disable-line react/prop-types
           display={'flex'}
           flexDirection={'row'}
           justifyContent={'flex-start'}
-          width={'50%'}
+          width={'60%'}
       >
         <g.Img
             float={'left'}
@@ -39,34 +39,42 @@ export default ({ title }) => ( // eslint-disable-line react/prop-types
             padding={0}
             src={headshot}
         />
-        <g.H2
-            display={'inline-block'}
-            fontStyle={'normal'}
-            margin={0}
-            padding={0}
-        >
-          {title}
-        </g.H2>
+        <Link to={'/'}>
+          <g.H2
+              display={'inline-block'}
+              fontStyle={'normal'}
+              margin={0}
+              padding={0}
+          >
+            {title} &mdash; Personal Site
+          </g.H2>
+        </Link>
       </g.Div>
       <g.Div
           alignItems={'center'}
           display={'flex'}
           flexDirection={'row'}
           justifyContent={'flex-end'}
-          width={'50%'}
+          width={'40%'}
       >
-        <Link to={'/about/'}>
+        <a
+            href="https://twitter.com/pulpfree"
+            target="_blank"
+        >
           <g.Img
               className={iconStyle}
               src={twitterIcon}
           />
-        </Link>
-        <Link to={'/'}>
+        </a>
+        <a
+            href="https://github.com/pulpfree"
+            target="_blank"
+        >
           <g.Img
               className={iconStyle}
               src={githubIcon}
           />
-        </Link>
+        </a>
         <a
             href="https://www.linkedin.com/in/pulpfree/"
             target="_blank"
@@ -76,12 +84,14 @@ export default ({ title }) => ( // eslint-disable-line react/prop-types
               src={linkedinIcon}
           />
         </a>
-        <Link to={'/'}>
+        <a
+            href="mailto:rond@webbtech.net"
+        >
           <g.Img
               className={iconStyle}
               src={emailIcon}
           />
-        </Link>
+        </a>
       </g.Div>
     </g.Div>
     <Navigation />

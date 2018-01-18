@@ -8,6 +8,7 @@ require('prismjs/themes/prism-solarizedlight.css')
 
 
 export default ({ data }) => { // eslint-disable-line react/prop-types
+  // console.log('data.allMarkdownRemark.edges:', data.allMarkdownRemark.edges)
   return (
     <div>
       <h4>{data.allMarkdownRemark.totalCount} Posts</h4>
@@ -17,14 +18,14 @@ export default ({ data }) => { // eslint-disable-line react/prop-types
               css={{ textDecoration: 'none', color: 'inherit' }}
               to={node.fields.slug}
           >
-            <g.H3 marginBottom={rhythm(1 / 4)}>
-              {node.frontmatter.title}{' '}
-              <g.Span
-                  color="#BBB"
-                  fontSize={'smaller'}
-              >— {node.frontmatter.date}</g.Span>
-            </g.H3>
-            <g.P color={'black'}>{node.excerpt}</g.P>
+            <g.H3 marginBottom={rhythm(1 / 4)}>{node.frontmatter.title}</g.H3>
+            <g.Div color={'black'}>{node.frontmatter.excerpt}</g.Div>
+            <g.Div
+                color="#BBB"
+                fontSize={'smaller'}
+            >
+              {node.frontmatter.date}
+            </g.Div>
           </Link>
         </div>
       ))}
@@ -42,12 +43,14 @@ export const query = graphql`
           id
           frontmatter {
             title
+            category
             date(formatString: "MMM D, YYYY")
+            excerpt
+            tags
           }
           fields {
             slug
-          },
-          excerpt
+          }
         }
       }
     }
