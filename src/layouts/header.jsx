@@ -1,22 +1,34 @@
 import React from 'react'
 
-import Link from 'gatsby-link'
+import FontAwesomeIcon from '@fortawesome/react-fontawesome'
+import faCoffee from '@fortawesome/fontawesome-free-solid/faCoffee'
+import faEnvelope from '@fortawesome/fontawesome-free-solid/faEnvelope'
+
+import brands from '@fortawesome/fontawesome-free-brands'
+import fontawesome from '@fortawesome/fontawesome'
+fontawesome.library.add(brands, faCoffee, faEnvelope)
+// import faCoffee from '@fortawesome/fontawesome-free-solid/faCoffee'
+
+import { Button, SVGIcon, FontIcon } from 'react-md'
+
+// import deleteIcon from 'icons/delete.svg'
+
+// import { Toolbar } from 'react-md/Toolbars'
+
+// import Toolbar from 'react-md/lib/Toolbars'
+
+// import Link from 'gatsby-link'
 import g from 'glamorous'
-import { css } from 'glamor'
+// import { css } from 'glamor'
 import { rhythm } from '../utils/typography'
 
 import headshot from '../assets/headshot.png'
-import twitterIcon from '../assets/twitter-icon.svg'
-import emailIcon from '../assets/email-icon.svg'
-import linkedinIcon from '../assets/linkedin-icon.svg'
-import githubIcon from '../assets/github-icon.svg'
 
 import Navigation from './navigation'
-const iconStyle = css({ marginTop: 8, marginBottom: 0, paddingLeft: 10, paddingRight: 10 })
 
-
-export default ({ title }) => ( // eslint-disable-line react/prop-types
+export default ({ history, location, title }) => ( // eslint-disable-line react/prop-types
   <g.Header
+      backgroundColor={'#2195F3'}
       display={'flex'}
       flexDirection={'column'}
       padding={rhythm(1/3)}
@@ -33,23 +45,26 @@ export default ({ title }) => ( // eslint-disable-line react/prop-types
           width={'60%'}
       >
         <g.Img
+            className={'as-link'}
             float={'left'}
             margin={0}
             marginRight={15}
+            onClick={() => history.push('/')}
             padding={0}
             src={headshot}
         />
-        <Link to={'/'}>
-          <g.H2
-              display={'inline-block'}
-              fontStyle={'normal'}
-              margin={0}
-              padding={0}
-          >
-            {title} &mdash; Personal Site
-          </g.H2>
-        </Link>
+        <g.H2
+            color={'#ffffff'}
+            display={'inline-block'}
+            fontStyle={'normal'}
+            margin={0}
+            onClick={() => history.push('/')}
+            padding={0}
+        >
+          {title} &mdash; Personal Site
+        </g.H2>
       </g.Div>
+
       <g.Div
           alignItems={'center'}
           display={'flex'}
@@ -57,43 +72,42 @@ export default ({ title }) => ( // eslint-disable-line react/prop-types
           justifyContent={'flex-end'}
           width={'40%'}
       >
-        <a
-            href="https://twitter.com/pulpfree"
-            target="_blank"
-        >
-          <g.Img
-              className={iconStyle}
-              src={twitterIcon}
-          />
-        </a>
-        <a
-            href="https://github.com/pulpfree"
-            target="_blank"
-        >
-          <g.Img
-              className={iconStyle}
-              src={githubIcon}
-          />
-        </a>
-        <a
-            href="https://www.linkedin.com/in/pulpfree/"
-            target="_blank"
-        >
-          <g.Img
-              className={iconStyle}
-              src={linkedinIcon}
-          />
-        </a>
-        <a
-            href="mailto:rond@webbtech.net"
-        >
-          <g.Img
-              className={iconStyle}
-              src={emailIcon}
-          />
-        </a>
+      <g.A
+          className="icon-link"
+          fontSize={30}
+          href="https://twitter.com/pulpfree"
+          target="_blank"
+      >
+        <FontAwesomeIcon icon={['fab', 'twitter']}/>
+      </g.A>
+      <g.A
+          className="icon-link"
+          fontSize={30}
+          href="https://github.com/pulpfree"
+          target="_blank"
+      >
+        <FontAwesomeIcon icon={['fab', 'github']}/>
+      </g.A>
+      <g.A
+          className="icon-link"
+          fontSize={30}
+          href="https://www.linkedin.com/in/pulpfree/"
+          target="_blank"
+      >
+        <FontAwesomeIcon icon={['fab', 'linkedin']}/>
+      </g.A>
+      <g.A
+          className="icon-link"
+          fontSize={30}
+          href="mailto:rond@webbtech.net"
+      >
+        <FontAwesomeIcon icon={faEnvelope}/>
+      </g.A>
       </g.Div>
     </g.Div>
-    <Navigation />
+    <Navigation
+        history={history}
+        location={location}
+    />
   </g.Header>
 )

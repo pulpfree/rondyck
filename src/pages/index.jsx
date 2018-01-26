@@ -8,7 +8,7 @@ require('prismjs/themes/prism-solarizedlight.css')
 
 
 export default ({ data }) => { // eslint-disable-line react/prop-types
-  // console.log('data.allMarkdownRemark.edges:', data.allMarkdownRemark.edges)
+
   return (
     <div>
       <h4>{data.allMarkdownRemark.totalCount} Posts</h4>

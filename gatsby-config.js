@@ -3,6 +3,7 @@ module.exports = {
     title: 'Ron Dyck',
   },
   plugins: [
+    'gatsby-plugin-sass',
     'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-source-filesystem',
@@ -31,12 +32,12 @@ module.exports = {
       },
     },
     'gatsby-plugin-glamor',
-    {
+    /*{
       resolve: 'gatsby-plugin-typography',
       options: {
         pathToConfigModule: 'src/utils/typography',
       },
-    },
+    },*/
     'gatsby-plugin-catch-links',
     {
       resolve: 'gatsby-plugin-google-analytics',

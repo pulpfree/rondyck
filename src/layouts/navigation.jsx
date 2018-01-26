@@ -1,28 +1,40 @@
 import React from 'react'
 
-import Link from 'gatsby-link'
+// import FlatButton from 'material-ui/FlatButton'
+import { Button } from 'react-md'
+
 import g from 'glamorous'
-import { css } from 'glamor'
+// import { css } from 'glamor'
 // import { rhythm } from '../utils/typography'
+// const activeBut = css({ backgroundColor: 'green' })
 
-const linkStyle = css({ marginLeft: 10, marginRight: 10, padding: 0 })
 
-export default () => (
+const menuLinks = [
+  {
+    label: 'Blog',
+    href: '/',
+  },
+  {
+    label: 'Résumé',
+    href: '/resume/',
+  },
+]
+
+export default ({ history, location }) => ( // eslint-disable-line react/prop-types
   <g.Div
       display={'flex'}
       marginLeft={62}
   >
-    <Link
-        className={linkStyle}
-        to={'/'}
-    >
-      Blog
-    </Link>
-    <Link
-        className={linkStyle}
-        to={'/resume/'}
-    >
-      Résumé
-    </Link>
+    {menuLinks.map(link =>
+      <Button
+          className={location.pathname === link.href ? 'activeMenuBut' : ''}
+          flat
+          key={link.href}
+          onClick={() => history.push(link.href)}
+          style={{color: '#fff'}}
+      >
+        {link.label}
+      </Button>
+    )}
   </g.Div>
 )
