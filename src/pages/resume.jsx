@@ -1,18 +1,22 @@
 import React from 'react'
 
 import { css } from 'glamor'
+import { Helmet } from 'react-helmet'
 
 const h2Style = css({ borderBottom: '1px solid #c0c0c0', paddingBottom: 3, marginTop: 30, marginBottom:20 })
 
 
-export default () => ( // eslint-disable-line react/prop-types
+export default ({data}) => ( // eslint-disable-line react/prop-types
   <div>
-    <h1>Resume</h1>
-    <p>
+    <Helmet>
+      <title>{data.site.siteMetadata.title} - Résumé</title>
+    </Helmet>
+    <h1>Résumé</h1>
     <h2 className={h2Style}>Profile</h2>
     <p>Passionate software engineer with 18+ years of experience developing robust mission-critical solutions for businesses. Successfully lead teams to innovate creative solutions and connect with customers to help them appreciate an ROI. Enjoy the challenge of learning and applying new ideas and technologies to solve problems.</p>
     <h2 className={h2Style}>Skills and Experience</h2>
     <table>
+      <tbody>
       <tr>
         <td>Golang (3yrs)</td>
         <td>Docker (3yrs)</td>
@@ -41,8 +45,9 @@ export default () => ( // eslint-disable-line react/prop-types
       <tr>
         <td>Microservices</td>
         <td>SPA design</td>
-        <td></td>
+        <td>API development</td>
       </tr>
+      </tbody>
     </table>
     <h2 className={h2Style}>Projects</h2>
     <h3>CBT Niagara - Cognitive Therapy Clinic</h3>
@@ -69,6 +74,16 @@ export default () => ( // eslint-disable-line react/prop-types
     <h4>Outcome</h4>
     <p>Entire infrastructure is now code based and a snap to reproduce. Changes can be safely tested in a development environment before deploying. Reporting and logging is greatly improved providing better insight into any issues.</p>
 
-  </p>
   </div>
 )
+
+// eslint-disable-next-line no-undef
+export const query = graphql`
+  query ResumePageQuery {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+  }
+`

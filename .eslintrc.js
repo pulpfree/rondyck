@@ -48,7 +48,7 @@ module.exports = {
     'react/jsx-sort-props': 'warn',
     'react/jsx-uses-react': 'warn',
     'react/jsx-uses-vars': 'warn',
-    'react/no-danger': 'warn',
+    // 'react/no-danger': 'warn',
     'react/no-did-mount-set-state': 'warn',
     'react/no-did-update-set-state': 'warn',
     'react/no-direct-mutation-state': 'warn',

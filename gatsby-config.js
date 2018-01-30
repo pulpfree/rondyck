@@ -3,6 +3,7 @@ module.exports = {
     title: 'Ron Dyck',
   },
   plugins: [
+    'gatsby-plugin-sass',
     'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-source-filesystem',
@@ -16,18 +17,32 @@ module.exports = {
       options: {
         plugins: [
           {
-            resolve: 'gatsby-remark-prismjs',
+            resolve: 'gatsby-remark-images',
+            options: {
+              maxWidth: 1200,
+            },
           },
+            // resolve: 'gatsby-remark-responsive-image',
+            // options: {
+            // It's important to specify the maxWidth (in pixels) of
+            // the content container as this plugin uses this as the
+            // base for generating different widths of each image.
+              // maxWidth: 590,
+              // linkImagesToOriginal: true,
+              // sizeByPixelDensity: false,
+            // },
+          // },
+          'gatsby-remark-prismjs',
         ],
       },
     },
-    'gatsby-plugin-glamor',
+    /*'gatsby-plugin-glamor',
     {
       resolve: 'gatsby-plugin-typography',
       options: {
         pathToConfigModule: 'src/utils/typography',
       },
-    },
+    },*/
     'gatsby-plugin-catch-links',
     {
       resolve: 'gatsby-plugin-google-analytics',
