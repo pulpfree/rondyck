@@ -12,10 +12,10 @@ Although there are a number of very good posts related to building, deploying an
 
 The **repository** for this project is available at: [github.com/pulpfree/rondyck](https://github.com/pulpfree/rondyck)
 
-*A note to Windows users:  
-I'm using a UNIX based OS (OS X), so be aware that a few CLI commands and utilities used in this post may not work the same. My apologies ahead of time for any inconvenience.*
+>**A note to Windows users:**  
+*I'm using a UNIX based OS (OS X), so be aware that a few CLI commands and utilities used in this post may not work the same. My apologies ahead of time for any inconvenience.*
 
-Before starting, here are a few objectives I had in mind for this project:
+Before starting, I'd like to cover a few objectives I had in mind for this project:  
  - Keep the site build simple and maintain extensibility
  - Utilize any AWS services where applicable
  - Deploy with Travis CI
@@ -186,7 +186,7 @@ Now if everything is set-up properly, when you go to `push` your git repo to mas
 ## Summary
 In researching for this project I ran across a few problems, in particular dealing with forwarding the "www" subdomain to the root domain using AWS. Having worked through these issues I trust this post will make things easier for the reader attempting to deploy and host a Gatsby site.
 
-The final result is that we have SSL encrypted domains properly forwarded, without having to deal with AWS EC2 instances or other hosting services that charge monthly fees. And, as a bonus to using available AWS services, we get a globally distributed site! I'd say that's a great return for the time invested.
+The final result is that we have SSL encrypted domains properly forwarded without having to deal with AWS EC2 instances or other hosting services that incur monthly fees. And, as a bonus to using available AWS services, we get a globally distributed site! I'd say that's a great return for the time invested.
 
 Thanks for reading. Would love to get your feedback, and if you have any questions or corrections, please feel free to comment below.
 
