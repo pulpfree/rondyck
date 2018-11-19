@@ -1,56 +1,32 @@
 module.exports = {
   siteMetadata: {
-    title: 'Ron Dyck',
+    title: 'Gatsby Default Starter',
   },
   plugins: [
-    'gatsby-plugin-sass',
     'gatsby-plugin-react-helmet',
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: `gatsby-source-filesystem`,
       options: {
-        name: 'posts',
-        path: `${__dirname}/src/`,
+        name: `images`,
+        path: `${__dirname}/src/images`,
       },
     },
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-sharp',
     {
-      resolve: 'gatsby-transformer-remark',
+      resolve: `gatsby-plugin-manifest`,
       options: {
-        plugins: [
-          {
-            resolve: 'gatsby-remark-images',
-            options: {
-              maxWidth: 1200,
-            },
-          },
-            // resolve: 'gatsby-remark-responsive-image',
-            // options: {
-            // It's important to specify the maxWidth (in pixels) of
-            // the content container as this plugin uses this as the
-            // base for generating different widths of each image.
-              // maxWidth: 590,
-              // linkImagesToOriginal: true,
-              // sizeByPixelDensity: false,
-            // },
-          // },
-          'gatsby-remark-prismjs',
-        ],
+        name: 'gatsby-starter-default',
+        short_name: 'starter',
+        start_url: '/',
+        background_color: '#663399',
+        theme_color: '#663399',
+        display: 'minimal-ui',
+        icon: 'src/images/gatsby-icon.png', // This path is relative to the root of the site.
       },
     },
-    /*'gatsby-plugin-glamor',
-    {
-      resolve: 'gatsby-plugin-typography',
-      options: {
-        pathToConfigModule: 'src/utils/typography',
-      },
-    },*/
-    'gatsby-plugin-catch-links',
-    {
-      resolve: 'gatsby-plugin-google-analytics',
-      options: {
-        trackingId: 'UA-112253318-1',
-        // Setting this parameter is optional
-        // anonymize: true,
-      },
-    },
+    // this (optional) plugin enables Progressive Web App + Offline functionality
+    // To learn more, visit: https://gatsby.app/offline
+    // 'gatsby-plugin-offline',
   ],
 }
