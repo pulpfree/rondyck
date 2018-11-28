@@ -4,7 +4,7 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { faGithub, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons'
 import faEnvelope from '@fortawesome/fontawesome-free-solid/faEnvelope'
 
-import Icon from './Icon'
+import SocialIcon from './SocialIcon'
 
 library.add(faEnvelope, faGithub, faLinkedin, faTwitter)
 
@@ -19,22 +19,22 @@ const SocialMenu = () => (
       marginRight: 15,
     }}
   >
-    <Icon
+    <SocialIcon
       icon={['fab', 'twitter']}
       title="Twitter"
       url="https://twitter.com/pulpfree"
     />
-    <Icon
+    <SocialIcon
       icon={['fab', 'github']}
       title="Github"
       url="https://github.com/pulpfree"
     />
-    <Icon
+    <SocialIcon
       icon={['fab', 'linkedin']}
       title="LinkedIn"
       url="https://www.linkedin.com/in/pulpfree/"
     />
-    <Icon
+    <SocialIcon
       icon={faEnvelope}
       title="Email"
       url="mailto:rond@webbtech.net"

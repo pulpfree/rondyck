@@ -7,50 +7,45 @@ import Button from '@material-ui/core/Button'
 import { withStyles } from '@material-ui/core/styles'
 
 import colors from '../config/colors'
+import navigate from '../config/navigate'
 
 
-const styles = {
+const styles = () => ({
   navContainer: {
     display: 'flex',
     flexDirection: 'row',
-    marginLeft: 120,
   },
   root: {
-    color: 'white',
+    color: colors.$menuLink,
   },
   active: {
-    color: colors.$accentText,
+    color: colors.$white,
   },
-}
+})
 
-const setButtonClass = (classes, searchPath) => {
-  const path = window.location.pathname
+const setButtonClass = (classes, location, searchPath) => {
+  const path = location.pathname
   return path === searchPath ? classes.active : classes.root
 }
 
-const MainNavigation = ({ classes }) => (
+const MainNavigation = ({ classes, location }) => (
   <div className={classes.navContainer}>
-    <Button
-      className={setButtonClass(classes, '/')}
-      // variant="contained"
-      component={Link}
-      to="/"
-    >
-      blog
-    </Button>
-    <Button
-      className={setButtonClass(classes, '/about/')}
-      // variant="contained"
-      component={Link}
-      to="/about/"
-    >
-      about
-    </Button>
+    {navigate.map(l => (
+      <Button
+        className={setButtonClass(classes, location, l.path)}
+        component={Link}
+        to={l.path}
+        key={l.path}
+      >
+        {l.label}
+      </Button>
+    ))}
   </div>
 )
 
 MainNavigation.propTypes = {
   classes: PropTypes.instanceOf(Object).isRequired,
+  location: PropTypes.instanceOf(Object).isRequired,
 }
 
 export default withStyles(styles)(MainNavigation)

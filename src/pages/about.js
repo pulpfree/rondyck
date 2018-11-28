@@ -1,21 +1,71 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 
-import Helmet from 'react-helmet'
-import Layout from '../components/Layout'
+import PageWrapper from '../components/PageWrapper'
 
 const About = ({ data }) => (
-  <Layout>
+  <PageWrapper>
     <Helmet
       title={`${data.site.siteMetadata.title} - About`}
     />
-    <div style={{ color: 'teal' }}>
+    <div>
       <h1>About Gatsby</h1>
       <p>Such wow. Very React.</p>
+      <p>Such wow. Very React.</p>
+      <p>Such wow. Very React.</p>
+      <p>Such wow. Very React.</p>
+      <p>Such wow. Very React.</p>
+      <p>Such wow. Very React.</p>
+      <p>Such wow. Very React.</p>
+      <p>Such wow. Very React.</p>
+      <p>Such wow. Very React.</p>
+      <p>Such wow. Very React.</p>
+      <p>Such wow. Very React.</p>
+      <p>Such wow. Very React.</p>
+      <p>Such wow. Very React.</p>
+      <p>Such wow. Very React.</p>
+      <p>Such wow. Very React.</p>
+      <p>Such wow. Very React.</p>
+      <p>Such wow. Very React.</p>
+      <p>Such wow. Very React.</p>
+      <p>Such wow. Very React.</p>
+      <p>Such wow. Very React.</p>
+      <p>Such wow. Very React.</p>
+      <p>Such wow. Very React.</p>
+      <p>Such wow. Very React.</p>
+      <p>Such wow. Very React.</p>
+      <p>Such wow. Very React.</p>
+      <p>Such wow. Very React.</p>
+      <p>Such wow. Very React.</p>
+      <p>Such wow. Very React.</p>
+      <p>Such wow. Very React.</p>
+      <p>Such wow. Very React.</p>
+      <p>Such wow. Very React.</p>
+      <p>Such wow. Very React.</p>
+      <p>Such wow. Very React.</p>
+      <p>Such wow. Very React.</p>
+      <p>Such wow. Very React.</p>
+      <p>Such wow. Very React.</p>
+      <p>Such wow. Very React.</p>
+      <p>Such wow. Very React.</p>
+      <p>Such wow. Very React.</p>
+      <p>Such wow. Very React.</p>
+      <p>Such wow. Very React.</p>
+      <p>Such wow. Very React.</p>
+      <p>Such wow. Very React.</p>
+      <p>Such wow. Very React.</p>
+      <p>Such wow. Very React.</p>
+      <p>Such wow. Very React.</p>
+      <p>Such wow. Very React.</p>
+      <p>Such wow. Very React.</p>
+      <p>Such wow. Very React.</p>
+      <p>Such wow. Very React.</p>
+      <p>Such wow. Very React.</p>
     </div>
-  </Layout>
+  </PageWrapper>
 )
 About.propTypes = {
   data: PropTypes.instanceOf(Object).isRequired,

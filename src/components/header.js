@@ -1,53 +1,23 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { Link, StaticQuery, graphql } from 'gatsby'
-import Img from 'gatsby-image'
+import { Link } from 'gatsby'
 
 import colors from '../config/colors'
 import MainNavigation from './MainNavigation'
 import SocialMenu from './SocialMenu'
 
+import Logo from '!svg-react-loader!../images/rondyck-logo-wh.svg?name=Logo' // eslint-disable-line
 
-const HeaderTitle = ({ title }) => (
-  <span dangerouslySetInnerHTML={{ __html: `${title} &mdash; Personal Site` }} /> // eslint-disable-line
-)
-HeaderTitle.propTypes = {
-  title: PropTypes.string.isRequired,
-}
-
-const HeadShot = () => (
-  <StaticQuery
-    query={graphql`
-      query {
-        placeholderImage: file(relativePath: { eq: "headshot.png" }) {
-          childImageSharp {
-            fixed(width: 53) {
-              ...GatsbyImageSharpFixed
-            }
-          }
-        }
-      }
-    `}
-    render={data => (
-      <div
-        css={{
-          padding: 6,
-          marginBottom: -6,
-        }}
-      >
-        <Img fixed={data.placeholderImage.childImageSharp.fixed} />
-      </div>
-    )}
-  />
-)
-
-const Header = ({ siteTitle }) => (
+const Header = ({ location }) => (
   <div
     css={{
       background: colors.$primary,
       display: 'flex',
       flexDirection: 'column',
+      marginBottom: '1.5em',
+      borderBottom: `solid 2px ${colors.$red}`,
+      padding: '4px 0',
     }}
   >
     <div
@@ -64,37 +34,29 @@ const Header = ({ siteTitle }) => (
           alignItems: 'center',
         }}
       >
-        <HeadShot />
-        <h2
+        <Link
+          to="/"
           css={{
-            margin: 0,
-            marginLeft: 10,
+            textDecoration: 'none',
+            marginBottom: '-10px',
           }}
         >
-          <Link
-            to="/"
+          <Logo
             css={{
-              color: 'rgba(255, 255, 255, .75)',
-              textDecoration: 'none',
+              width: 200,
+              height: 50,
+              marginLeft: 10,
             }}
-          >
-            {siteTitle}
-            <span
-              css={{
-                fontSize: '80%',
-              }}
-              dangerouslySetInnerHTML={{ __html: ' &mdash; Personal Site' }} // eslint-disable-line
-            />
-          </Link>
-        </h2>
+          />
+        </Link>
       </div>
+      <MainNavigation location={location} />
       <SocialMenu />
     </div>
-    <MainNavigation />
   </div>
 )
 Header.propTypes = {
-  siteTitle: PropTypes.string.isRequired,
+  location: PropTypes.instanceOf(Object).isRequired,
 }
 
 export default Header

@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
+import colors from '../config/colors'
+
 const Icon = ({ icon, url, title }) => (
   <a
     css={{ paddingLeft: 20 }}
@@ -15,15 +17,15 @@ const Icon = ({ icon, url, title }) => (
       icon={icon}
       size="2x"
       style={{
-        color: 'rgba(255, 255, 255, .5)',
+        color: colors.$menuLink,
       }}
     />
   </a>
 )
 Icon.propTypes = {
   icon: PropTypes.instanceOf(Object).isRequired,
-  url: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired,
 }
 
 export default Icon
