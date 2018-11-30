@@ -62,37 +62,42 @@ let Tags = ({ classes, tags }) => {
 }
 Tags.propTypes = {
   classes: PropTypes.instanceOf(Object).isRequired,
-  tags: PropTypes.instanceOf(Object).isRequired,
+  tags: PropTypes.instanceOf(Object),
+}
+Tags.defaultProps = {
+  tags: null,
 }
 
 Tags = withStyles(styles)(Tags)
 
 const Blog = ({ classes, data }) => (
-  <PageWrapper>
+  <>
     <Helmet
       title={`${data.site.siteMetadata.title} - Blog`}
     />
-    <div>
-      {data.allMarkdownRemark.edges.map(({ node }) => (
-        <div
-          css={{
-            marginBottom: '1rem',
-          }}
-          key={node.id}
-        >
-          <Link
-            className={classes.postLink}
-            to={node.fields.slug}
+    <PageWrapper>
+      <div>
+        {data.allMarkdownRemark.edges.map(({ node }) => (
+          <div
+            css={{
+              marginBottom: '1rem',
+            }}
+            key={node.id}
           >
-            <h2 className={classes.title}>{node.frontmatter.title}</h2>
-            <div className={classes.date}>{node.frontmatter.date}</div>
-            <div>{node.frontmatter.excerpt}</div>
-          </Link>
-          <div><Tags tags={node.frontmatter.tags} /></div>
-        </div>
-      ))}
-    </div>
-  </PageWrapper>
+            <Link
+              className={classes.postLink}
+              to={node.fields.slug}
+            >
+              <h2 className={classes.title}>{node.frontmatter.title}</h2>
+              <div className={classes.date}>{node.frontmatter.date}</div>
+              <div>{node.frontmatter.excerpt}</div>
+            </Link>
+            <div><Tags tags={node.frontmatter.tags} /></div>
+          </div>
+        ))}
+      </div>
+    </PageWrapper>
+  </>
 )
 Blog.propTypes = {
   classes: PropTypes.instanceOf(Object).isRequired,
@@ -108,7 +113,10 @@ export const query = graphql`
         title
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { published: { ne: false } } }
+    ) {
       totalCount
       edges {
         node {

@@ -1,6 +1,9 @@
+/* eslint-disable react/no-danger */
+
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 
 import PageWrapper from '../components/PageWrapper'
@@ -8,28 +11,39 @@ import colors from '../config/colors'
 
 const Post = ({ data }) => {
   const post = data.markdownRemark
-  // console.log('post: ', post)
+  const tags = post.frontmatter.tags ? post.frontmatter.tags.join(', ') : ''
   return (
-    <PageWrapper>
-      <h1>{post.frontmatter.title}</h1>
-      <div
-        css={{
-          fontSize: '80%',
-          color: colors.$gray,
-          marginBottom: '1em',
-        }}
-      >
-        {post.frontmatter.date}
-      </div>
-      <div dangerouslySetInnerHTML={{ __html: post.html }} />
-      <div
-        css={{
-          marginTop: 10,
-        }}
-      >
-        <a href="#top">^-- top</a>
-      </div>
-    </PageWrapper>
+    <>
+      <Helmet
+        title={post.frontmatter.title}
+        meta={[
+          { name: 'description', content: post.frontmatter.excerpt },
+          { name: 'keywords', content: tags },
+        ]}
+      />
+      <PageWrapper>
+        <h1>{post.frontmatter.title}</h1>
+        <div
+          css={{
+            fontSize: '80%',
+            color: colors.$gray,
+            marginBottom: '1em',
+          }}
+        >
+          {post.frontmatter.date}
+        </div>
+        <div
+          dangerouslySetInnerHTML={{ __html: post.html }}
+        />
+        <div
+          css={{
+            marginTop: 10,
+          }}
+        >
+          <a href="#top">^-- top</a>
+        </div>
+      </PageWrapper>
+    </>
   )
 }
 Post.propTypes = {
@@ -44,6 +58,8 @@ export const query = graphql`
       html
       frontmatter {
         date(formatString: "MMM DD, YYYY")
+        excerpt
+        tags
         title
       }
     }

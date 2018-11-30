@@ -25,7 +25,7 @@ const styles = () => ({
 
 const setButtonClass = (classes, location, searchPath) => {
   const path = location.pathname
-  return path === searchPath ? classes.active : classes.root
+  return path.indexOf(searchPath) >= 0 ? classes.active : classes.root
 }
 
 const MainNavigation = ({ classes, location }) => (
@@ -42,7 +42,6 @@ const MainNavigation = ({ classes, location }) => (
     ))}
   </div>
 )
-
 MainNavigation.propTypes = {
   classes: PropTypes.instanceOf(Object).isRequired,
   location: PropTypes.instanceOf(Object).isRequired,

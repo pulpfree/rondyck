@@ -39,9 +39,6 @@ class Transition extends React.PureComponent {
             <div
               style={{
                 ...getTransitionStyles[status],
-                // minHeight: '100vh',
-                // marginBottom: '-100px',
-                // flex: 1,
               }}
               className="Site-content"
             >

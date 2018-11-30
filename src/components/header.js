@@ -38,7 +38,7 @@ const Header = ({ location }) => (
           to="/"
           css={{
             textDecoration: 'none',
-            marginBottom: '-10px',
+            marginBottom: '-5px',
           }}
         >
           <Logo

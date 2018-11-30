@@ -2,6 +2,7 @@
 title: "Building, Deploying & Hosting a Gatsby Site"
 category: "web development"
 date: "2018-01-18"
+published: true
 excerpt: "My experiences building, hosting and deploying a Gatsby site with AWS services."
 tags:
     - React

@@ -1,16 +1,47 @@
 module.exports = {
   siteMetadata: {
     title: 'Ron Dyck',
+    siteUrl: 'https://rondyck.com',
   },
   plugins: [
     'gatsby-plugin-glamor',
+    // {
+    //   resolve: 'gatsby-plugin-typography',
+    //   options: {
+    //     pathToConfigModule: 'src/utils/typography.js',
+    //   },
+    // },
+    'gatsby-plugin-react-helmet',
     {
-      resolve: 'gatsby-plugin-typography',
+      resolve: '@wapps/gatsby-plugin-material-ui',
       options: {
-        pathToConfigModule: 'src/utils/typography.js',
+        theme: {
+          palette: {
+            primary: {
+              light: '#FC0008',
+              main: '#DD0006',
+              dark: '#BE0305',
+            },
+            secondary: {
+              light: '#E5E5EA',
+              main: '#8E8E93',
+              dark: '#666666',
+            },
+          },
+          // error: '#',
+          // Used by `getContrastText()` to maximize the contrast between the background and
+          // the text.
+          contrastThreshold: 3,
+          tonalOffset: 0.2,
+          typography: {
+            fontFamily: 'Roboto',
+            // fontSize: 34,
+            useNextVariants: true,
+            // htmlFontSize: 6,
+          },
+        },
       },
     },
-    'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -77,7 +108,7 @@ module.exports = {
         short_name: 'rondyck',
         start_url: '/',
         background_color: '#1C5488',
-        theme_color: '#1C5488',
+        theme_color: '#DD0006',
         display: 'minimal-ui',
         icon: 'src/images/favicon.png', // This path is relative to the root of the site.
       },
@@ -92,6 +123,42 @@ module.exports = {
       resolve: 'gatsby-plugin-react-svg',
       options: {
         include: /images/,
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-google-analytics',
+      options: {
+        trackingId: 'UA-112253318-1',
+        // Setting this parameter is optional
+        // anonymize: true,
+        cookieDomain: 'rondyck.com',
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-sitemap',
+      options: {
+        output: '/sitemap.xml',
+        // Exclude specific pages or groups of pages using glob parameters
+        // See: https://github.com/isaacs/minimatch
+        // The example below will exclude the single `path/to/page`
+        // and all routes beginning with `category`
+        // exclude: ['/category/*', '/path/to/page'],
+        query: `
+          {
+            site {
+              siteMetadata {
+                siteUrl
+              }
+            }
+
+            allSitePage {
+              edges {
+                node {
+                  path
+                }
+              }
+            }
+          }`,
       },
     },
   ],
