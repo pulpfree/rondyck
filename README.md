@@ -5,3 +5,4 @@ Site uses [Gatsby](https://www.gatsbyjs.org), go to: [rondyck.com](https://rondy
 
 ## To Do
 1. Integrate 'tags' functionality
+2. Re-integrate Disqus
