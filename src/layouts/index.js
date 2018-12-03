@@ -15,7 +15,6 @@ import MobileMenu from '../components/MobileMenu'
 import Transition from '../components/Transition'
 import BottomNavigation from '../components/BottomNavigation'
 
-// import './layout.css'
 import './reset.css'
 
 const styles = () => ({
