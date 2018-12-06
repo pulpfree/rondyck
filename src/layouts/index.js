@@ -17,6 +17,7 @@ import BottomNavigation from '../components/BottomNavigation'
 
 import './reset.css'
 
+
 const styles = () => ({
   body: {
     backgroundColor: colors.$background,

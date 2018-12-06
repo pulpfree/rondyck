@@ -22,7 +22,7 @@ function extractFields(names, formValues) {
 // for alternate way of handling errors
 const ContactFormCntr = withFormik({
   enableReinitialize: true,
-  validateOnBlur: true,
+  // validateOnBlur: true,
   validateOnChange: false,
   validationSchema: Yup.object().shape({
     name: Yup.string()

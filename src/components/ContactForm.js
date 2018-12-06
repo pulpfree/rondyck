@@ -61,14 +61,14 @@ const ContactForm = ({
               onSubmit={handleSubmit}
             >
               <FormControl
-                aria-describedby="size-helper-text"
+                aria-describedby="name-helper-text"
                 className={classes.formControl}
                 error={!!errors.name}
               >
                 <InputLabel htmlFor="name">Name</InputLabel>
                 <Input
                   autoFocus
-                  id="name"
+                  // id="name"
                   name="name"
                   onChange={handleChange}
                   value={values.name || ''}
@@ -83,9 +83,9 @@ const ContactForm = ({
               >
                 <InputLabel htmlFor="email">Email</InputLabel>
                 <Input
-                  id="email"
+                  // id="email"
                   name="email"
-                  onBlur={handleBlur}
+                  // onBlur={handleBlur}
                   onChange={handleChange}
                   type="email"
                   value={values.email || ''}
@@ -100,9 +100,9 @@ const ContactForm = ({
               >
                 <InputLabel htmlFor="comments">Comments</InputLabel>
                 <Input
-                  id="comments"
+                  // id="comments"
                   multiline
-                  onBlur={handleBlur}
+                  // onBlur={handleBlur}
                   onChange={handleChange}
                   value={values.comments || ''}
                 />
