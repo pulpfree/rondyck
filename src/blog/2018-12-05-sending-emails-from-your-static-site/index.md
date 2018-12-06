@@ -2,7 +2,7 @@
 title: "Sending Emails From Your Static Site"
 category: "web development"
 date: "2018-12-05"
-published: true
+published: false
 excerpt: "A contact form you can use in your static site."
 tags:
     - React
