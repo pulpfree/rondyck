@@ -1,24 +1,9 @@
 import AWS from 'aws-sdk'
 
-// todo: these 2 vars need to go into environment
-const IdentityPoolId = 'us-east-1:948a3b34-728e-447b-87d8-6b5ab26a6039'
-const email = 'Webbtech Sysadmin <sysadmin@webbtech.net>'
-
-AWS.config.update({
-  region: 'us-east-1',
-  credentials: new AWS.CognitoIdentityCredentials({
-    IdentityPoolId,
-  }, {
-    region: 'us-east-1',
-  }),
-})
-
 // Create sendEmail params
 const params = {
   Destination: {
-    ToAddresses: [
-      email,
-    ],
+    ToAddresses: [],
   },
   Message: {
     Body: {
@@ -29,17 +14,30 @@ const params = {
     },
     Subject: {
       Charset: 'UTF-8',
-      Data: 'Contact Request from rondyck.com',
+      Data: '',
     },
   },
-  Source: email,
+  Source: '',
 }
 
-export default async function sendEmail(fields) {
+export default async function sendEmail(fields, cognitoPoolID, recipient, subject) {
+  AWS.config.update({
+    region: 'us-east-1',
+    credentials: new AWS.CognitoIdentityCredentials({
+      IdentityPoolId: cognitoPoolID,
+    }, {
+      region: 'us-east-1',
+    }),
+  })
+
   const svc = new AWS.SES({ apiVersion: '2010-12-01' })
   let body = `From: ${fields.name} <${fields.email}>\n\n`
   body += `Message:\n${fields.comments}`
+
+  params.Destination.ToAddresses.push(recipient)
   params.Message.Body.Text.Data = body
+  params.Message.Subject.Data = subject
+  params.Source = recipient
 
   await svc.sendEmail(params).promise()
     .catch((err) => {
