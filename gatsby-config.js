@@ -1,7 +1,18 @@
+if (process.env.NODE_ENV === 'development') {
+  require('dotenv').config({ // eslint-disable-line
+    path: `.env.${process.env.NODE_ENV}`,
+  })
+}
+
+
 module.exports = {
   siteMetadata: {
-    title: 'Ron Dyck',
+    cognitoPoolID: process.env.COGNITO_IDENTITY_POOL_ID,
+    description: 'foo and bar',
+    mailerRecipient: process.env.MAILER_RECIPIENT,
+    mailerSubject: 'Contact Request from rondyck.com',
     siteUrl: 'https://rondyck.com',
+    title: 'Ron Dyck',
   },
   plugins: [
     'gatsby-plugin-glamor',
@@ -121,7 +132,8 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
-        trackingId: 'UA-112253318-1',
+        // trackingId: 'UA-112253318-1',
+        trackingId: process.env.GA_TRACKING_ID,
         // Setting this parameter is optional
         // anonymize: true,
         cookieDomain: 'rondyck.com',

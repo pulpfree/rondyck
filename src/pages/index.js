@@ -107,6 +107,7 @@ export const query = graphql`
     site {
       siteMetadata {
         title
+        description
       }
     }
     backgroundImage: file(relativePath: {eq: "images/irvan-smith-563895-unsplash.jpg"}) {

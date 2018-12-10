@@ -17,13 +17,6 @@ import BottomNavigation from '../components/BottomNavigation'
 
 import './reset.css'
 
-// require('dotenv').config()
-/*require('dotenv').config({
-  // path: `.env.${process.env.NODE_ENV}`,
-  path: '.env',
-})*/
-
-// console.log('node mailer: ', mailer)
 
 const styles = () => ({
   body: {

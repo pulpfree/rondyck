@@ -31,13 +31,13 @@ const ContactFormCntr = withFormik({
       .email()
       .required(),
     comments: Yup.string()
-      .max(256, 'Maximum number of characters is: 256')
-      .nullable(),
+      .max(256, 'Maximum number of characters is: 256'),
   }),
   handleSubmit: async (values, { setStatus, setSubmitting }) => {
+    const { cognitoPoolID, mailerRecipient, mailerSubject } = values.data.site.siteMetadata
     const fields = extractFields(fieldNames, values)
     try {
-      await sendEmail(fields)
+      await sendEmail(fields, cognitoPoolID, mailerRecipient, mailerSubject)
       setStatus({ success: true })
       setSubmitting(false)
     } catch (err) {
@@ -53,10 +53,15 @@ export default compose(
 )(ContactForm)
 
 export const query = graphql`
-  query ContactPageQuery {
+  query {
     site {
       siteMetadata {
+        siteUrl
         title
+        description
+        cognitoPoolID
+        mailerSubject
+        mailerRecipient
       }
     }
   }
