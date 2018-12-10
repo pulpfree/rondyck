@@ -45,6 +45,7 @@ const ContactForm = ({
       <Helmet
         title={`${data.site.siteMetadata.title} - Contact`}
       />
+      // {console.log('foo', data.site.siteMetadata)}
       <PageWrapper>
         <div className={classes.container}>
           <h1>Contact Ron Dyck</h1>

@@ -35,6 +35,7 @@ const ContactFormCntr = withFormik({
       .nullable(),
   }),
   handleSubmit: async (values, { setStatus, setSubmitting }) => {
+    console.log('values: ', values.data.site.siteMetadata)
     const fields = extractFields(fieldNames, values)
     try {
       await sendEmail(fields)
@@ -53,10 +54,13 @@ export default compose(
 )(ContactForm)
 
 export const query = graphql`
-  query ContactPageQuery {
+  query {
     site {
       siteMetadata {
+        siteUrl
         title
+        description
+        cognitoPoolID
       }
     }
   }

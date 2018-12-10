@@ -1,7 +1,18 @@
+if (process.env === 'production') {
+  require('dotenv').config({ // eslint-disable-line
+    path: `.env.${process.env.NODE_ENV}`,
+  })
+}
+// console.log('process.env in config: ', process.env)
+
+
 module.exports = {
   siteMetadata: {
     title: 'Ron Dyck',
     siteUrl: 'https://rondyck.com',
+    cognitoPoolID: process.env.COGNITO_IDENTITY_POOL_ID,
+    mailerRecipient: process.env.MAILER_RECIPIENT,
+    description: 'foo and bar',
   },
   plugins: [
     'gatsby-plugin-glamor',
