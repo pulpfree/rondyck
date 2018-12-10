@@ -13,7 +13,7 @@ tags:
 ![Photo by Jerry Kiesewetter on Unsplash](jerry-kiesewetter-179264-unsplash.jpg)
 Photo by Jerry Kiesewetter on Unsplash
 
-Recently while upgrading this site, I decided against using an HTML `mailto` link for sending contact requests. There are a number of disadvantages to using this method, and so I felt it was time to set-up a simple contact form and a method to this form.
+Recently while upgrading this site, I decided against using an HTML `mailto` link for sending contact requests. There are a number of disadvantages to using this method, and so I felt it was time to set-up a simple contact form and a method to process this form.
 
 I'm using [Gatsby](https://www.gatsbyjs.org/) as a static site generator which uses [React](https://reactjs.org/) for generating the interface. My stack consists of the following frameworks and libraries:
 
