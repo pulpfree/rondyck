@@ -6,6 +6,7 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 
+import Disqus from '../components/Disqus'
 import PageWrapper from '../components/PageWrapper'
 import colors from '../config/colors'
 
@@ -42,6 +43,8 @@ const Post = ({ data }) => {
         >
           <a href="#top">^-- top</a>
         </div>
+
+        <Disqus post={post} />
       </PageWrapper>
     </>
   )
@@ -61,6 +64,9 @@ export const query = graphql`
         excerpt
         tags
         title
+      }
+      fields {
+        slug
       }
     }
   }

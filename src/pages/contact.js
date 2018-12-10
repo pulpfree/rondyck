@@ -8,11 +8,11 @@ import sendEmail from '../utils/SESService'
 
 const fieldNames = ['email', 'name', 'comments']
 
-function extractFields(names, formValues) {
+function extractFields(names, values) {
   const fields = {}
   names.forEach((nm) => {
-    if (nm in formValues) {
-      fields[nm] = formValues[nm]
+    if (nm in values) {
+      fields[nm] = values[nm]
     }
   })
   return fields
@@ -22,7 +22,6 @@ function extractFields(names, formValues) {
 // for alternate way of handling errors
 const ContactFormCntr = withFormik({
   enableReinitialize: true,
-  // validateOnBlur: true,
   validateOnChange: false,
   validationSchema: Yup.object().shape({
     name: Yup.string()

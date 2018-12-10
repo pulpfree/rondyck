@@ -1,5 +1,6 @@
 import AWS from 'aws-sdk'
 
+// todo: these 2 vars need to go into environment
 const IdentityPoolId = 'us-east-1:948a3b34-728e-447b-87d8-6b5ab26a6039'
 const email = 'Webbtech Sysadmin <sysadmin@webbtech.net>'
 
@@ -34,10 +35,10 @@ const params = {
   Source: email,
 }
 
-export default async function sendEmail(senderParams) {
+export default async function sendEmail(fields) {
   const svc = new AWS.SES({ apiVersion: '2010-12-01' })
-  let body = `From: ${senderParams.name} <${senderParams.email}>\n\n`
-  body += `Message:\n${senderParams.comments}`
+  let body = `From: ${fields.name} <${fields.email}>\n\n`
+  body += `Message:\n${fields.comments}`
   params.Message.Body.Text.Data = body
 
   await svc.sendEmail(params).promise()
