@@ -5,12 +5,6 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-glamor',
-    // {
-    //   resolve: 'gatsby-plugin-typography',
-    //   options: {
-    //     pathToConfigModule: 'src/utils/typography.js',
-    //   },
-    // },
     'gatsby-plugin-react-helmet',
     {
       resolve: '@wapps/gatsby-plugin-material-ui',
@@ -35,7 +29,6 @@ module.exports = {
           tonalOffset: 0.2,
           typography: {
             fontFamily: 'Roboto',
-            // fontSize: 34,
             useNextVariants: true,
             // htmlFontSize: 6,
           },

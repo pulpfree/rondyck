@@ -6,3 +6,13 @@ html {
 body {
   margin: 0;
 }
+
+li {
+  display: list-item;
+  text-align: -webkit-match-parent;
+  margin-bottom: .25rem
+}
+
+p {
+  line-height: 1.35rem
+}
