@@ -32,7 +32,6 @@ const ContactForm = ({
   data,
   dirty,
   errors,
-  handleBlur,
   handleChange,
   handleSubmit,
   isSubmitting,
@@ -61,14 +60,13 @@ const ContactForm = ({
               onSubmit={handleSubmit}
             >
               <FormControl
-                aria-describedby="size-helper-text"
+                aria-describedby="name-helper-text"
                 className={classes.formControl}
                 error={!!errors.name}
               >
                 <InputLabel htmlFor="name">Name</InputLabel>
                 <Input
                   autoFocus
-                  id="name"
                   name="name"
                   onChange={handleChange}
                   value={values.name || ''}
@@ -83,9 +81,7 @@ const ContactForm = ({
               >
                 <InputLabel htmlFor="email">Email</InputLabel>
                 <Input
-                  id="email"
                   name="email"
-                  onBlur={handleBlur}
                   onChange={handleChange}
                   type="email"
                   value={values.email || ''}
@@ -100,9 +96,8 @@ const ContactForm = ({
               >
                 <InputLabel htmlFor="comments">Comments</InputLabel>
                 <Input
-                  id="comments"
                   multiline
-                  onBlur={handleBlur}
+                  name="comments"
                   onChange={handleChange}
                   value={values.comments || ''}
                 />
@@ -131,7 +126,6 @@ ContactForm.propTypes = {
   data: PropTypes.instanceOf(Object).isRequired,
   dirty: PropTypes.bool.isRequired,
   errors: PropTypes.instanceOf(Object).isRequired,
-  handleBlur: PropTypes.func.isRequired,
   handleChange: PropTypes.func.isRequired,
   handleSubmit: PropTypes.func.isRequired,
   isSubmitting: PropTypes.bool.isRequired,

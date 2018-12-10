@@ -43,7 +43,7 @@ const Resume = ({ classes, data }) => (
       <h1>Résumé</h1>
 
       <h2 className={classes.h2}>Profile</h2>
-      <p>Passionate software engineer with 18+ years of experience developing robust mission-critical solutions for businesses. Successfully lead teams to innovate creative solutions and connect with customers to help them appreciate an ROI. Enjoy the challenge of learning and applying new ideas and technologies to solve problems.</p>
+      <p>Passionate software engineer with 18+ years of experience developing robust mission-critical solutions for businesses. Successfully innovated creative solutions and connected with customers to help them appreciate an ROI. Enjoy the challenge of learning and applying new ideas and technologies to solve problems.</p>
       <h2 className={classes.h2}>Skills and Experience</h2>
       <p>My primary focus recently has been with Golang and Javascript languages developing applications and microservices utilizing Graphql to query either MongoDB or DynamoDB. My deployment strategies have focused on AWS services to leverage the benefits of serverless technologies.</p>
       <SkillSet />

@@ -5,12 +5,6 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-glamor',
-    // {
-    //   resolve: 'gatsby-plugin-typography',
-    //   options: {
-    //     pathToConfigModule: 'src/utils/typography.js',
-    //   },
-    // },
     'gatsby-plugin-react-helmet',
     {
       resolve: '@wapps/gatsby-plugin-material-ui',
@@ -35,7 +29,6 @@ module.exports = {
           tonalOffset: 0.2,
           typography: {
             fontFamily: 'Roboto',
-            // fontSize: 34,
             useNextVariants: true,
             // htmlFontSize: 6,
           },
@@ -90,7 +83,7 @@ module.exports = {
               // right after importing the prism color scheme:
               //  `require("prismjs/plugins/line-numbers/prism-line-numbers.css");`
               // Defaults to false.
-              showLineNumbers: false,
+              showLineNumbers: true,
               // If setting this to true, the parser won't handle and highlight inline
               // code used in markdown i.e. single backtick code like `this`.
               noInlineHighlight: false,

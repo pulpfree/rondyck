@@ -10,13 +10,20 @@ import withWidth from '@material-ui/core/withWidth'
 import { withStyles } from '@material-ui/core/styles'
 
 import colors from '../config/colors'
-import Header from '../components/Header'
+import Header from '../components/MainHeader'
 import MobileMenu from '../components/MobileMenu'
 import Transition from '../components/Transition'
 import BottomNavigation from '../components/BottomNavigation'
 
-// import './layout.css'
 import './reset.css'
+
+// require('dotenv').config()
+/*require('dotenv').config({
+  // path: `.env.${process.env.NODE_ENV}`,
+  path: '.env',
+})*/
+
+// console.log('node mailer: ', mailer)
 
 const styles = () => ({
   body: {
