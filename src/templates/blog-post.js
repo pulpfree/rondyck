@@ -6,6 +6,8 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 
+import ArrowUpIcon from '@material-ui/icons/ArrowDropUp'
+
 import Disqus from '../components/Disqus'
 import PageWrapper from '../components/PageWrapper'
 import colors from '../config/colors'
@@ -41,7 +43,10 @@ const Post = ({ data }) => {
             marginTop: 10,
           }}
         >
-          <a href="#top">^-- top</a>
+          <a href="#top">
+            <ArrowUpIcon style={{ fontSize: 50, marginBottom: '-19px' }} />
+            Back to Top
+          </a>
         </div>
 
         <Disqus post={post} />

@@ -3,14 +3,15 @@ title: "Sending Emails From A Static Site With AWS SES"
 category: "web development"
 date: "2018-12-10"
 published: true
-excerpt: "A contact form you can use in your static site."
+excerpt: "A contact form for your static site built with React, Formik and AWS SES."
 tags:
     - React
     - AWS
+    - SES
     - Formik
 ---
 
-![Photo by Jerry Kiesewetter on Unsplash](jerry-kiesewetter-179264-unsplash.jpg)
+![Photo by Jerry Kiesewetter](jerry-kiesewetter-179264-unsplash.jpg)
 Photo by Jerry Kiesewetter on Unsplash
 
 Recently while upgrading this site, I decided against using an HTML `mailto` link for sending contact requests. There are a number of disadvantages to using this method, and so I felt it was time to set-up a simple contact form and a method to process this form.

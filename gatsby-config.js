@@ -1,3 +1,4 @@
+// Set environment vars for development
 if (process.env.NODE_ENV === 'development') {
   require('dotenv').config({ // eslint-disable-line
     path: `.env.${process.env.NODE_ENV}`,
@@ -8,7 +9,8 @@ if (process.env.NODE_ENV === 'development') {
 module.exports = {
   siteMetadata: {
     cognitoPoolID: process.env.COGNITO_IDENTITY_POOL_ID,
-    description: 'foo and bar',
+    description: 'Personal website for Ron Dyck - Software Engineer',
+    keywords: 'Ron Dyck, Software Engineer, Blog',
     mailerRecipient: process.env.MAILER_RECIPIENT,
     mailerSubject: 'Contact Request from rondyck.com',
     siteUrl: 'https://rondyck.com',

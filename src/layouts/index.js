@@ -35,9 +35,12 @@ const styles = () => ({
 const Layout = ({ children, classes, location }) => (
   <StaticQuery
     query={graphql`
-      query SiteTitleQuery {
+      query SiteQuery {
         site {
           siteMetadata {
+            description
+            keywords
+            siteUrl
             title
           }
         }
@@ -48,8 +51,8 @@ const Layout = ({ children, classes, location }) => (
         <Helmet
           title={data.site.siteMetadata.title}
           meta={[
-            { name: 'description', content: 'Sample' },
-            { name: 'keywords', content: 'sample, something' },
+            { name: 'description', content: data.site.siteMetadata.description },
+            { name: 'keywords', content: data.site.siteMetadata.keywords },
           ]}
           bodyAttributes={{
             class: classes.body,
@@ -57,7 +60,7 @@ const Layout = ({ children, classes, location }) => (
         >
           <html lang="en" />
           <link
-            href="http://rondyck.com"
+            href={data.site.siteMetadata.siteUrl}
             rel="canonical"
           />
         </Helmet>
